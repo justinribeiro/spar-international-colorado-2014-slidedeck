@@ -46,7 +46,7 @@
       font-style: normal;
       font-variant: normal;
       font-weight: normal;
-      color: #fff;        
+      color: #fff;
      }
      
      #glass-status h1, h2 {
@@ -176,7 +176,7 @@
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
         <section>
-          <h1>Beyond WebGL: Increasing Online Viewer Performance Pipeline on the Web and for Your Audience</h1>
+          <h1>Viewer Performance Pipeline on the Web</h1>
           <h3>SPAR International Colorado 2014</h3>
           <p>
             <a href="http://justinribeiro.com">Justin Ribeiro</a>
@@ -196,46 +196,50 @@
 
         <section data-background="">
           <h2>In the beginning</h2>
+          <img src="images/minapplet.jpg" />
         </section>
 
         <section data-background="">
           <h2>3D and the web = hard</h2>
+          <img src="images/3d-hard-dwight.jpg" />
         </section>
 
         <section data-background="">
           <h2>Things started getting better</h2>
+          <img src="images/mac_pc.png" />
         </section>
 
         <section data-background="">
           <h2>Oh yeah, WebGL</h2>
+          <img src="images/webgl-demo-teapot-udacity-course-1.jpg" />
         </section>
 
         <section data-background="">
           <h2>Speeeedy</h2>
+          [picture of bandwidth increases]
         </section>
 
         <section data-background="">
           <h2>Argh, the pain</h2>
+          [why you hate me ie]
         </section>
 
         <section data-background="">
-          <h2>3D and the web = hard</h2>
+          <h2>3D and the web = better, but still hard</h2>
         </section>
 
         <section data-background="">
           <h2>Let's be friends</h2>
+          [picture of ie]
         </section>
 
         <section data-background="">
           <h2>Son of a #@$%^*</h2>
+          [iOS]
         </section>
 
         <section data-background="">
-          <h2>3D and the web = hard</h2>
-        </section>
-
-        <section data-background="">
-          <h2>3D and the web = it's getting better</h2>
+          <h2>3D and the web = still moving forward</h2>
         </section>
 
         <section>
@@ -263,7 +267,7 @@
           <h2>Handling the entire pipeline</h2>
           <ol>
             <li>It's just not rendering a object</li>
-            <li>We have resources to send, data to parse</li>
+            <li>We have resources to send, data to parse, features to share</li>
           </ol>
         </section>
 
@@ -344,6 +348,30 @@
         <section>
           <h2>Waterfall chart</h2>
           [Image of perf data from Network panel]
+        </section>
+        
+        <section>
+          <h2>The numbers talk about costs</h2>
+          <ol>
+            <li>More bandwidth/loading cost = more chance for user to leave</li>
+            <li>Faster loading but too heavy operations = jank</li>
+          </ol>
+        </section>
+        
+        <section>
+          <h2>Finding that balance</h2>
+          <ol>
+            <li>Getting to first render fast is a must</li>
+            <li>Compress if you can</li>
+          </ol>
+        </section>
+        
+        <section>
+          <h2>Throw in a wrench</h2>
+          <ol>
+            <li>Mobile is hard to ignore</li>
+            <li>Offers new challenges: latency, memory constraints, support</li>
+          </ol>
         </section>
 
         <section>
@@ -495,7 +523,7 @@
         JDR.glass.glassUpdateDomElement = $("#glass-timer");
 
         // Connect to the demo glass socket
-        JDR.glass.ws = $.websocket({ 
+        JDR.glass.ws = $.websocket({
             url: "ws://ec2-50-18-226-240.us-west-1.compute.amazonaws.com:8899/glass"
         });
 
