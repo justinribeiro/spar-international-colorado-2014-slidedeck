@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Increasing Online Viewer Performance Pipeline on the Web and for Your Audience / SPAR International Colorado 2014</title>
+
+    <meta name="description" content="Presentation slides for Increasing Online Viewer Performance Pipeline on the Web and for Your Audience for SPAR International Colorado 2014">
+    <meta name="author" content="Justin Ribeiro">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+    <style>
+    /* JDR: not good practice, but it's a presentation...so let's roll with it */
+    body {
+      background: radial-gradient(circle farthest-corner at center center , #222222 0%, #000000 100%) repeat scroll 0 0 #000000;
+    }
+    
+    /* Layout Boundary for updating Glass stat pack */
+    #statpack {
+      left: 10px;
+      bottom: 10px;
+      width: 250px;
+      height: 100px;
+      overflow: hidden;
+      position: absolute;
+    }
+    
+    #glass-status {
+      position: relative;
+      z-index: 30;
+      bottom: 0;
+       padding: 0.5em;
+       vertical-align: top;
+      font-family: Lato, sans-serif;
+      font-style: normal;
+      font-variant: normal;
+      font-weight: normal;
+      color: #fff;        
+     }
+     
+     #glass-status h1, h2 {
+       margin: 0.6em 0;
+     }
+    
+          
+     .li-data {
+       color: #96CA33;
+       font-weight: 800;
+       padding: 0 0.25em;
+     }
+     
+     .iconned {
+       padding-right: 0.6em !important;
+     }
+
+     /** Fix for FontAwesome w/Reveal **/
+    .reveal i.fa{
+         font-family: 'FontAwesome';
+         font-style: normal;
+         font-size: 100%;
+     }
+
+     .text-center {
+       text-align: center;
+     }
+
+     .reveal ul li, .reveal ol li  {
+       padding-bottom: 0.6em;
+     }
+
+     .reveal pre code {
+       max-height: none;
+     }
+
+    /* Notifications
+    -------------------------------------------------- */
+    #notification {
+      position:fixed;
+      z-index: 2000;
+      width: 100%;
+      display:none;
+      bottom: 0;
+    }
+
+    #notification-title, #notification-message {
+      margin: 0 0 20px 0;
+      color: #eeeeee;
+      font-family: Lato, sans-serif;
+      line-height: 0.9em;
+      letter-spacing: 0.02em;
+      text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    #notification-title {
+      font-size: 3em;
+    }
+
+    #notification-message {
+      font-size: 1.6em;
+    }
+
+    .notification-show {
+      display:block !important;
+    }
+
+    .notification-padding {
+      padding: 2em;
+    }
+
+    .notification-error {
+      background-color: #c65757;
+    }
+    .notification-warning {
+      background-color: #f3c93f;
+    }
+    .notification-info {
+      background-color: #85beee;
+    }
+
+
+    .notification-success {
+      background-color: #8cc657;
+    }
+    .notification-success > div > h3, .notification-error > div > h3 {
+      color: #fff;
+    }
+    .notification-success > div > p, .notification-error > div > p {
+      color: #fff;
+    }
+    
+    .temp {
+      color: #96CA33;
+      font-weight: 800;
+      padding: 0 0.25em;
+    }
+    #sensorOutputs div {
+      padding: 0.5em;
+    }
+    
+    .smaller {
+      padding: 0 !important;
+      font-size: 75% !important;
+    }
+    
+    </style>
+    
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+          <h1>Beyond WebGL: Increasing Online Viewer Performance Pipeline on the Web and for Your Audience</h1>
+          <h3>SPAR International Colorado 2014</h3>
+          <p>
+            <a href="http://justinribeiro.com">Justin Ribeiro</a>
+            <br>
+            <i class="fa fa-envelope-o"></i> <a href="mailto:justin@stickmanventures.com"> justin@stickmanventures.com </a>
+          </p>
+          <br />
+          <p>
+            <i class="fa fa-twitter"></i> <a class="iconned" rel="me" href="http://twitter.com/justinribeiro"> @justinribeiro</a>
+            <i class="fa fa-google-plus"></i> <a class="iconned" rel="me" href="http://google.plus.justinribeiro.com"> +Justin Ribeiro</a>
+            <i class="fa fa-github"></i> <a class="iconned" rel="me" href="http://github.justinribeiro.com"> justinribeiro </a>
+          </p>
+          <p>
+            Slides: <a href="http://goo.gl/LMVBf" title="short url to these slides">http://goo.gl/</a>
+          </p>
+        </section>
+
+        <section data-background="">
+          <h2>In the beginning</h2>
+        </section>
+
+        <section data-background="">
+          <h2>3D and the web = hard</h2>
+        </section>
+
+        <section data-background="">
+          <h2>Things started getting better</h2>
+        </section>
+
+        <section data-background="">
+          <h2>Oh yeah, WebGL</h2>
+        </section>
+
+        <section data-background="">
+          <h2>Speeeedy</h2>
+        </section>
+
+        <section data-background="">
+          <h2>Argh, the pain</h2>
+        </section>
+
+        <section data-background="">
+          <h2>3D and the web = hard</h2>
+        </section>
+
+        <section data-background="">
+          <h2>Let's be friends</h2>
+        </section>
+
+        <section data-background="">
+          <h2>Son of a #@$%^*</h2>
+        </section>
+
+        <section data-background="">
+          <h2>3D and the web = hard</h2>
+        </section>
+
+        <section data-background="">
+          <h2>3D and the web = it's getting better</h2>
+        </section>
+
+        <section>
+          <h2>What's an online viewer to do?</h2>
+          <ol>
+            <li>We need to render an object to the viewport</li>
+            <li>We need to do so as fast as we can</li>
+            <li>We need to be where our users are</li>
+          </ol>
+        </section>
+
+        <section>
+          <h2>You are not the average user</h2>
+          <ul>
+            <li>Rule #1: Your workstation !== your users computer/tablet/phone/tv
+              <ul>
+                <li>Stop thinking this now</li>
+              </ul>
+            </li>
+            <li>"It works for me" is not an excuse</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Handling the entire pipeline</h2>
+          <ol>
+            <li>It's just not rendering a object</li>
+            <li>We have resources to send, data to parse</li>
+          </ol>
+        </section>
+
+        <section>
+          <h2>It's not so simple</h2>
+
+          <h3>That's...what is that?</h3>
+        </section>
+
+        <section>
+          <h2>Make the hard decision first</h2>
+          <h3>What must my object accomplish?</h3>
+        </section>
+
+        <section>
+          <h2>No, you're 155M poly model is not ready</h2>
+          <ol>
+            <li>You forgot rule #1</li>
+          </ol>
+        </section>
+
+        <section>
+          <h2>Great! One click decimate and just load it right?</h2>
+        </section>
+
+        <section>
+          <h2>Trades off</h2>
+          <ol>
+            <li>Does it look right? Did you lose detail you need/want?</li>
+            <li>What about those textures?</li>
+            <li>It's about your use case</li>
+          </ol>
+        </section>
+
+        <section>
+          <h2>What you handle, what the browser handles</h2>
+          <ol>
+            <li>Diffuse / ambient occ / light map
+              <ul>
+                <li>Maybe you don't need moving lights? Bake it!</li>
+                <li>Maybe you don't need twenty files? Combine!</li>
+              </ul>
+            </li>
+          </ol>
+        </section>
+
+        <section>
+          <h2>What you handle, what the browser handles (cont)</h2>
+          <ol>
+            <li>The model</li>
+            <li>Can you load simple geo?
+              <ul>
+                <li>Push additional level of detail data async</li>
+                <li>Generate based on displacment, allow GPU to handle subdivisions</li>
+              </ul>
+            </li>
+          </ol>
+        </section>
+
+        <section>
+          <h2>The Trades Offs</h2>
+          <ol>
+            <li>If we do more work on the backend, we have more requests and possibly larger assets to serve</li>
+            <li>If we hand off less assets but more config data, we expect the client GPU to do more work</li>
+          </ol>
+        </section>
+
+        <section>
+          <h2>What this means</h2>
+          [Image of loading screen]
+        </section>
+
+        <section>
+          <h2>Dev Tools Says</h2>
+          [Image of perf data from Network panel]
+        </section>
+
+        <section>
+          <h2>Waterfall chart</h2>
+          [Image of perf data from Network panel]
+        </section>
+
+        <section>
+          <h1>The End</h1>
+          <h3>Thank you!</h3>
+          <p>
+            <i class="fa fa-twitter"></i> <a class="iconned" rel="me" href="http://twitter.com/justinribeiro"> @justinribeiro</a>
+            <i class="fa fa-google-plus"></i> <a class="iconned" rel="me" href="http://google.plus.justinribeiro.com"> +Justin Ribeiro</a>
+            <i class="fa fa-github"></i> <a class="iconned" rel="me" href="http://github.justinribeiro.com"> justinribeiro </a>
+          </p>
+        </section>
+
+      </div>
+    </div>
+    
+    <!-- JDR: this creates a layout boundry so we don't reflow the whole page -->
+    <div id="statpack">
+      <aside id="glass-status">
+        <h1>Justin's Glass Timer</h1>
+        <h2><span id="glass-timer">30m 00s</span></h2>
+      </aside>
+    </div>
+    
+    <div id="notification" class="animated">
+        <div class="text-center notification-padding">
+            <h3 id="notification-title"></h3>
+            <p id="notification-message"></p>
+        </div>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="js/jquery.websocket.callback.js"></script>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+      JDR = {
+        notification: {
+            defaultTimeout: 5000,
+            trigger: function (type, title, message, timeout, wait) {
+
+                $("#notification-title").html(title);
+                $("#notification-message").html(message);
+
+                var baseClasses = "fadeInUp notification-show";
+
+                // Always reset the state of the color
+                $("#notification").removeClass("notification-error notification-warning notification-success");
+
+                if (type == 1) {
+                    baseClasses = baseClasses + " notification-error"
+                }
+
+                if (type == 2) {
+                    baseClasses = baseClasses + " notification-warning"
+                }
+
+                if (type == 3) {
+                    baseClasses = baseClasses + " notification-success"
+                }
+
+                $("#notification").addClass(baseClasses);
+                        
+                if (wait == null) {
+                    if (timeout != null) {
+                        setTimeout(JDR.notification.hideHandler, timeout);
+                    } else {
+                        setTimeout(JDR.notification.hideHandler, this.defaultTimeout);
+                    }
+                }
+            },
+            hideHandler: function () {
+                $("#notification").addClass("fadeOutDown");
+
+                // the CSS3 animations are smooth...but having issue with callback on end
+                // TODO patch this to remove this hack
+                setTimeout(function () {
+                    $("#notification").removeClass().addClass("animated");
+                    $("#notification-title").html("");
+                    $("#notification-message").html("");
+                }, 2000);
+
+            }
+        },
+        utils: {
+
+          // Let's just keep this simple, no fancy
+          msToPretty: function( rawMs ) {
+                        
+            var ms = rawMs % 1000;
+            rawMs = (rawMs - ms) / 1000;
+
+            var secs = rawMs % 60;
+            rawMs = (rawMs - secs) / 60;
+            
+            var mins = rawMs % 60;
+
+            return mins + 'm ' + secs + 's ' + ms + 'ms ';
+          }
+        },
+        glass: {
+          ws: null,
+          glassUpdateDomElement: null,
+          onOpen: function ( value ) {
+            JDR.notification.trigger(3,
+                "Connected to Websocket",
+                "Now listening for data from the broker"
+            );
+          },
+          onMessage: function ( value ) {
+
+            var obj = jQuery.parseJSON(value);
+
+            if (typeof Number(obj.message) === 'number'){
+              var prettyTime = JDR.utils.msToPretty(obj.message);
+              JDR.glass.glassUpdateDomElement[0].textContent = prettyTime;
+            }
+
+          }
+        }
+      };
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+        // parallaxBackgroundSize: '2100px 900px',
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+        ]
+      });
+
+      $( document ).ready(function() {
+
+        // This is going to get updated a lot, let's just hang on to it
+        JDR.glass.glassUpdateDomElement = $("#glass-timer");
+
+        // Connect to the demo glass socket
+        JDR.glass.ws = $.websocket({ 
+            url: "ws://ec2-50-18-226-240.us-west-1.compute.amazonaws.com:8899/glass"
+        });
+
+        JDR.glass.ws.topic( "websocket.onOpen" ).subscribe( JDR.glass.onOpen );
+        JDR.glass.ws.topic( "websocket.onMessage" ).subscribe( JDR.glass.onMessage );
+
+      });
+
+    </script>
+
+  </body>
+</html>
