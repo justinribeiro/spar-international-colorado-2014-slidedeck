@@ -194,29 +194,30 @@
           </p>
         </section>
 
-        <section data-background="">
+        <section>
           <h2>In the beginning</h2>
           <img src="images/minapplet.jpg" />
+          <img src="images/modem.jpg" />
         </section>
 
-        <section data-background="">
+        <section>
           <h2>3D and the web = hard</h2>
           <img src="images/3d-hard-dwight.jpg" />
         </section>
 
-        <section data-background="">
+        <section>
           <h2>Things started getting better</h2>
           <img src="images/mac_pc.png" />
         </section>
 
-        <section data-background="">
+        <section>
           <h2>Oh yeah, WebGL</h2>
-          <img src="images/webgl-demo-teapot-udacity-course-1.jpg" />
+          <img src="images/screenshot-20140403-chrometeapot.png" />
         </section>
 
         <section data-background="">
           <h2>Speeeedy</h2>
-          [picture of bandwidth increases]
+          <img src="images/pew-internet-2013-v1-620x406.png" />
         </section>
 
         <section data-background="">
@@ -230,12 +231,12 @@
 
         <section data-background="">
           <h2>Let's be friends</h2>
-          [picture of ie]
+          <img src="images/screenshot-20140403-IE11.png" />
         </section>
 
         <section data-background="">
           <h2>Son of a #@$%^*</h2>
-          [iOS]
+          <img src="images/iphone_5s_iphone_5c_iphone_4s_apple_products_16x9.jpg" />
         </section>
 
         <section data-background="">
@@ -253,78 +254,116 @@
 
         <section>
           <h2>You are not the average user</h2>
-          <ul>
-            <li>Rule #1: Your workstation !== your users computer/tablet/phone/tv
-              <ul>
-                <li>Stop thinking this now</li>
-              </ul>
-            </li>
-            <li>"It works for me" is not an excuse</li>
-          </ul>
+          <h3>Rule #1: Your workstation !== your users device</h3>
         </section>
 
         <section>
           <h2>Handling the entire pipeline</h2>
-          <ol>
+          <ul>
             <li>It's just not rendering a object</li>
             <li>We have resources to send, data to parse, features to share</li>
-          </ol>
+          </ul>
         </section>
 
         <section>
           <h2>It's not so simple</h2>
-
-          <h3>That's...what is that?</h3>
+          <img src="images/hpbn_0205.png" />
         </section>
 
         <section>
           <h2>Make the hard decision first</h2>
-          <h3>What must my object accomplish?</h3>
+          <h3>What must my viewer accomplish?</h3>
         </section>
 
         <section>
-          <h2>No, you're 155M poly model is not ready</h2>
-          <ol>
+          <h2>No, your 155M poly model is not ready</h2>
+          <ul>
             <li>You forgot rule #1</li>
-          </ol>
+          </ul>
         </section>
 
         <section>
-          <h2>Great! One click decimate and just load it right?</h2>
+          <h2>Great! One click decimate and just load it up right?</h2>
         </section>
 
         <section>
-          <h2>Trades off</h2>
-          <ol>
-            <li>Does it look right? Did you lose detail you need/want?</li>
-            <li>What about those textures?</li>
-            <li>It's about your use case</li>
-          </ol>
+          <h2>A base example</h2>
+          <img src="images/slides_template-JDR-base-case-ape-output.png" />
         </section>
 
         <section>
-          <h2>What you handle, what the browser handles</h2>
-          <ol>
-            <li>Diffuse / ambient occ / light map
-              <ul>
-                <li>Maybe you don't need moving lights? Bake it!</li>
-                <li>Maybe you don't need twenty files? Combine!</li>
-              </ul>
-            </li>
-          </ol>
+          <h2>But all is not golden</h2>
+          <ul>
+            <li>A decimated mesh != an optimized mesh</li>
+            <li>Mesh + all those files = lots of network utilization</li>
+            <li>Read + drawn = memory and GPU time consumed</li>
+          </ul>
         </section>
 
         <section>
-          <h2>What you handle, what the browser handles (cont)</h2>
-          <ol>
-            <li>The model</li>
-            <li>Can you load simple geo?
-              <ul>
-                <li>Push additional level of detail data async</li>
-                <li>Generate based on displacment, allow GPU to handle subdivisions</li>
-              </ul>
-            </li>
-          </ol>
+          <h2>Who cares about network?</h2>
+          <img src="images/screenshot-20140403-lotsofdata.png" />
+          <h3>Users who want to use your site</h3>
+        </section>
+
+        <section>
+          <h2>That's not a real world example Justin</h2>
+          <img src="images/screenshot-20140403-notgooddata.png" />
+          <h3>I beg to differ</h3>
+        </section>
+
+        <section>
+          <h2>Pssstf, you'll never find another</h2>
+          <img src="images/screenshot-20140403-stillnotawesome.png" />
+          <h3>Hummmm. :-/ Sad sounds.</h3>
+        </section>
+
+        <section>
+          <img src="images/server_burn_before.png" />
+        </section>
+
+        <section>
+          <img src="images/server_burn.png" />
+        </section>
+
+        <section>
+          <h2>Burn baby burn, the user</h2>
+          <ul>
+            <li>Your users pay with their time, battery et cetera</li>
+            <li>Increase in page size = increased rendering times</li>
+            <li>Users expect pages to load in two seconds</li>
+            <li>After three seconds: ~40% of users will abandon your site</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Crunch what you can</h2>
+          <ul>
+            <li>Diffuse / AO / light map: combine + compress</li>
+            <li>Geometry: textures backfill the detail, use LoD, lose precision</li>
+            <li>Everything: Determine your formats and use gzip</li>
+          </ul>
+        </section>
+
+        <section data-background-transition="slide">
+          <h2>Let our powers combine</h2>
+          <img src="images/slides_template-JDR-workingcopy-groupcombine.png" />    
+        </section>
+
+        <section data-background-transition="slide">
+          <h2>Level of Detail</h2>
+          <ul>
+            <li>Traditional sense: multiple models swapped as view changes</li>
+            <li>Could test via media query, simply serve proper size</li>
+          </ul>   
+        </section>
+
+        <section data-background-transition="slide">
+          <h2>Those pesky files</h2>
+          <ul>
+            <li>PNG v JPG: the good and the ugly</li>
+            <li>OBJ, aka the bloated whale</li>
+          </ul>
         </section>
 
         <section>
@@ -334,37 +373,6 @@
             <li>If we hand off less assets but more config data, we expect the client GPU to do more work</li>
           </ol>
         </section>
-
-        <section>
-          <h2>What this means</h2>
-          [Image of loading screen]
-        </section>
-
-        <section>
-          <h2>Dev Tools Says</h2>
-          [Image of perf data from Network panel]
-        </section>
-
-        <section>
-          <h2>Waterfall chart</h2>
-          [Image of perf data from Network panel]
-        </section>
-        
-        <section>
-          <h2>The numbers talk about costs</h2>
-          <ol>
-            <li>More bandwidth/loading cost = more chance for user to leave</li>
-            <li>Faster loading but too heavy operations = jank</li>
-          </ol>
-        </section>
-        
-        <section>
-          <h2>Finding that balance</h2>
-          <ol>
-            <li>Getting to first render fast is a must</li>
-            <li>Compress if you can</li>
-          </ol>
-        </section>
         
         <section>
           <h2>Throw in a wrench</h2>
@@ -372,6 +380,14 @@
             <li>Mobile is hard to ignore</li>
             <li>Offers new challenges: latency, memory constraints, support</li>
           </ol>
+        </section>
+
+        <section>
+          <h2>No magic bullet</h2>
+          <ul>
+            <li>One export does not fit all</li>
+            <li>General approaches lead to </li>
+          </ul>
         </section>
 
         <section>
@@ -497,13 +513,14 @@
       // Full list of configuration options available here:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
-        controls: true,
+        controls: false,
         progress: true,
         history: true,
         center: true,
 
         theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+        transition: 'slide', // default/cube/page/concave/zoom/linear/fade/none
+        backgroundTransition: 'slide',
 
         // Parallax scrolling
         // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
