@@ -83,6 +83,19 @@
        max-height: none;
      }
 
+     .img-right {
+      float: right;
+      margin: 0 !important;
+     }
+
+     .double-col-left {
+      float: left;
+      width: 49%;
+     }
+
+
+
+
     /* Notifications
     -------------------------------------------------- */
     #notification {
@@ -196,8 +209,12 @@
 
         <section>
           <h2>In the beginning</h2>
-          <img src="images/minapplet.jpg" />
-          <img src="images/modem.jpg" />
+          <div class="double-col-left">
+            <img src="images/modem.jpg" />
+          </div>          
+          <div class="double-col-left">
+            <img src="images/minapplet.jpg" />
+          </div>
         </section>
 
         <section>
@@ -301,7 +318,7 @@
         </section>
 
         <section>
-          <h2>Who cares about network?</h2>
+          <h2>Who cares about network?</h2>ch
           <img src="images/screenshot-20140403-lotsofdata.png" />
           <h3>Users who want to use your site</h3>
         </section>
@@ -319,11 +336,18 @@
         </section>
 
         <section>
-          <img src="images/server_burn_before.png" />
-        </section>
-
-        <section>
-          <img src="images/server_burn.png" />
+          <div class="double-col-left">
+            <h2>Oh the humanity</h2>
+            <ul>
+              <li>Huge models, textures, and assets have costs</li>
+              <li>Blindly saying "it works for me" is a crutch to allow you to sleep at night</li>
+              <li>Your users are not happy</li>
+              <li>Your servers are probably on fire</li>
+            </ul>
+          </div>
+          <div class="double-col-left">
+           <img src="images/server_burn.png" class="img-right" />
+          </div>
         </section>
 
         <section>
@@ -351,42 +375,110 @@
         </section>
 
         <section data-background-transition="slide">
-          <h2>Level of Detail</h2>
+          <h2>I don't want to bake</h2>
           <ul>
-            <li>Traditional sense: multiple models swapped as view changes</li>
-            <li>Could test via media query, simply serve proper size</li>
+            <li>Can offer sizable wins</li>
+            <li>Reduced Network Request Overhead</li>
+            <li>Reduced asset weight (6.7MB PNGs > 134K Prog JPG)</li>
+            <li>Reduced memory footprint ( 4K = 128MB reduce)</li>
           </ul>   
         </section>
 
         <section data-background-transition="slide">
-          <h2>Those pesky files</h2>
+          <h2>Level of Detail</h2>
           <ul>
-            <li>PNG v JPG: the good and the ugly</li>
-            <li>OBJ, aka the bloated whale</li>
+            <li>Traditional sense: multiple models swapped as view changes</li>
+            <li>Test via media query, serve proper geometry + textures</li>
+          </ul>   
+        </section>
+
+        <section data-background-transition="slide">
+          <h2>Level of Detail = more work</h2>
+          <ul>
+            <li>Have to create multiple outputs targeting approriate audiences</li>
+            <li>Can be time consuming</li>
+          </ul>   
+        </section>
+
+        <section data-background-transition="slide">
+          <h2>Crunch that model</h2>
+          <ul>
+            <li>OBJ isn't the only game in town</li>
+            <li>UTF-8 can show significant gains in compression (http://goo.gl/G81fAp)</li>
+            <li>Not one size fits all...but OBJ is heavy</li>
+          </ul>   
+        </section>
+
+        <section data-background-transition="slide">
+          <h2>Remember that burning server</h2>
+          <ul>
+            <li>Chances are, you web server can't handle the spike</li>
+            <li>Use a CDN</li>
+            <li>Compress the living daylights out of everything</li>
+          </ul>
+        </section>
+
+        <section data-background-transition="slide">
+          <h2>Yeaaa, eveything is loaded</h2>
+          <ul>
+            <li>Use requestAnimationFrame()</li>
+            <li>Reduce your draw calls (why are you rendering frames if your scene isn't changing?)</li>
           </ul>
         </section>
 
         <section>
-          <h2>The Trades Offs</h2>
+          <h2>Throw in a wrench / Mobile</h2>
           <ol>
-            <li>If we do more work on the backend, we have more requests and possibly larger assets to serve</li>
-            <li>If we hand off less assets but more config data, we expect the client GPU to do more work</li>
+            <li>Offers new challenges
+              <ul>
+                <li>Increased latency on cell networks</li>
+                <li>Limited available memory</li>
+                <li>Varied support</li>
+              </ul>
+            </li>
           </ol>
         </section>
-        
+
         <section>
-          <h2>Throw in a wrench</h2>
-          <ol>
-            <li>Mobile is hard to ignore</li>
-            <li>Offers new challenges: latency, memory constraints, support</li>
-          </ol>
+          <h1>So what model viewer does all these things?</h1>
+        </section>
+
+        <section>
+          <h1>None of them</h1>
         </section>
 
         <section>
           <h2>No magic bullet</h2>
           <ul>
-            <li>One export does not fit all</li>
-            <li>General approaches lead to </li>
+            <li>One solution does not fit all uses cases</li>
+            <li>General approaches lead to often sub-par performance for the end user</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Popular kid: Three.js</h2>
+          <ul>
+            <li>Very active and supportive community</li>
+            <li>Easy API to wire up</li>
+            <li>Support for webgl-loader UTF-8 (which I like)</li>
+            <li>Lots and lots of use cases</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Unpopular kid: Three.js</h2>
+          <ul>
+            <li>Easy API often leads to poorly coded viewers</li>
+            <li>Can be overkill for just loading a model</li>
+            <li>Won't save you from yourself</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Other options</h2>
+          <ul>
+            <li>Libs: <a href="http://www.glge.org/">GLGE</a>, <a href="https://code.google.com/p/open-3d-viewer/">open-3d-viewer</a></li>
+            <li>Services: <a href="https://sketchfab.com/">Sketchfab</a>, <a href="http://verold.com/">Verold</a>, <a href="http://p3d.in/">p3d.in</a></li>
           </ul>
         </section>
 
