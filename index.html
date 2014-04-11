@@ -385,6 +385,14 @@
         </section>
 
         <section data-background-transition="slide">
+          <h2>Other considerations</h2>
+          <ul>
+            <li>Mipmapping (requires power-of-two sizes)</li>
+            <li>Stop with the 8K textures (seriously, do you really need them?)</li>
+          </ul>   
+        </section>
+
+        <section data-background-transition="slide">
           <h2>Level of Detail</h2>
           <ul>
             <li>Traditional sense: multiple models swapped as view changes</li>
@@ -401,11 +409,31 @@
         </section>
 
         <section data-background-transition="slide">
-          <h2>Crunch that model</h2>
+          <h2>Reduce for the win</h2>
           <ul>
-            <li>OBJ isn't the only game in town</li>
+            <li>Your model is just as heavy</li>
+            <li>Reduce your faces</li>
+            <li>Reduce your vertices</li>
+            <li>Reduce per-vertex data</li>
+          </ul>   
+        </section>
+
+        <section data-background-transition="slide">
+          <h2>Why?</h2>
+          <ul>
+            <li>Your model is just as heavy</li>
+            <li>Reduce your faces</li>
+            <li>Reduce your vertices</li>
+            <li>Reduce per-vertex data</li>
+          </ul>   
+        </section>
+
+        <section data-background-transition="slide">
+          <h2>Crunch that model output</h2>
+          <ul>
+            <li>OBJ makes me sad</li>
             <li>UTF-8 can show significant gains in compression (http://goo.gl/G81fAp)</li>
-            <li>Not one size fits all...but OBJ is heavy</li>
+            <li><a href="https://github.com/KhronosGroup/glTF">glTF</a> on the horizen: "JPEG for 3D"</li>
           </ul>   
         </section>
 
@@ -469,7 +497,7 @@
           <h2>Unpopular kid: Three.js</h2>
           <ul>
             <li>Easy API often leads to poorly coded viewers</li>
-            <li>Can be overkill for just loading a model</li>
+            <li>Usually, simplity is a trade off with speed</li>
             <li>Won't save you from yourself</li>
           </ul>
         </section>
@@ -477,6 +505,7 @@
         <section>
           <h2>Other options</h2>
           <ul>
+            <li>Viewers: <a href="http://www.glge.org/">rest3d</a>, <a href="https://code.google.com/p/open-3d-viewer/">Cesium</a>, <a href="https://code.google.com/p/open-3d-viewer/">MontageJs</a></li>
             <li>Libs: <a href="http://www.glge.org/">GLGE</a>, <a href="https://code.google.com/p/open-3d-viewer/">open-3d-viewer</a></li>
             <li>Services: <a href="https://sketchfab.com/">Sketchfab</a>, <a href="http://verold.com/">Verold</a>, <a href="http://p3d.in/">p3d.in</a></li>
           </ul>
