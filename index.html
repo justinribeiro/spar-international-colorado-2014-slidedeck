@@ -387,8 +387,10 @@
         <section data-background-transition="slide">
           <h2>Other considerations</h2>
           <ul>
-            <li>Mipmapping (requires power-of-two sizes)</li>
+            <li>Smaller textures perform better</li>
             <li>Stop with the 8K textures (seriously, do you really need them?)</li>
+            <li>Mipmapping = win (requires power-of-two sizes)</li>
+            <li>Simple materials</li>
           </ul>   
         </section>
 
@@ -421,10 +423,9 @@
         <section data-background-transition="slide">
           <h2>Why?</h2>
           <ul>
-            <li>Your model is just as heavy</li>
-            <li>Reduce your faces</li>
-            <li>Reduce your vertices</li>
-            <li>Reduce per-vertex data</li>
+            <li>WebGL vertex index buffer limited to 16-bit (Chrome + Firefox support OES_element_index_uint)</li>
+            <li>Can't expect OES_element_index_uint on mobile; compute offsets, split it up</li>
+            <li>Per-vertex data gets sent to the buffer even if you're not using it</li>
           </ul>   
         </section>
 
@@ -441,8 +442,8 @@
           <h2>Remember that burning server</h2>
           <ul>
             <li>Chances are, you web server can't handle the spike</li>
-            <li>Use a CDN</li>
             <li>Compress the living daylights out of everything</li>
+            <li>Use a CDN</li>
           </ul>
         </section>
 
@@ -506,7 +507,7 @@
           <h2>Other options</h2>
           <ul>
             <li>Viewers: <a href="http://www.glge.org/">rest3d</a>, <a href="https://code.google.com/p/open-3d-viewer/">Cesium</a>, <a href="https://code.google.com/p/open-3d-viewer/">MontageJs</a></li>
-            <li>Libs: <a href="http://www.glge.org/">GLGE</a>, <a href="https://code.google.com/p/open-3d-viewer/">open-3d-viewer</a></li>
+            <li>Libs: <a href="https://github.com/greggman/tdl">TDL</a>, <a href="http://www.glge.org/">GLGE</a>, <a href="http://spidergl.org/">SpiderGL</a>, <a href="https://github.com/cjcliffe/CubicVR.js/">CubicVR</a>, <a href="https://code.google.com/p/open-3d-viewer/">open-3d-viewer</a></li>
             <li>Services: <a href="https://sketchfab.com/">Sketchfab</a>, <a href="http://verold.com/">Verold</a>, <a href="http://p3d.in/">p3d.in</a></li>
           </ul>
         </section>
